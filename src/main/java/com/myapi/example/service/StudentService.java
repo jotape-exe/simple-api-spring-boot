@@ -4,6 +4,7 @@ import com.myapi.example.model.Student;
 import com.myapi.example.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -24,12 +25,14 @@ public class StudentService {
         return (ArrayList<Student>) this.studentRepository.findAll();
     }
 
+    @Transactional
     public Student update(Student student){
         Student newStudent = findById(student.getId());
         newStudent.setCourse(student.getCourse());
         return this.studentRepository.save(newStudent);
     }
 
+    @Transactional
     public Student create(Student student){
         student.setId(null);
         return this.studentRepository.save(student);
