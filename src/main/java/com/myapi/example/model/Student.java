@@ -26,18 +26,12 @@ public class Student {
     @NotBlank
     private String course;
 
-    @ManyToOne
-    @JoinTable(name = "address_student",
-            joinColumns = @JoinColumn(name = "estudante_id"),
-            inverseJoinColumns = @JoinColumn(name = "endereco_cep"))
-    private Endereco endereco;
-
-    public Student(Long id, String name, String registration, String course, Endereco endereco) {
+    public Student(Long id, String name, String registration, String course) {
         this.id = id;
         this.name = name;
         this.registration = registration;
         this.course = course;
-        this.endereco = endereco;
+
     }
     public Student(){
 
