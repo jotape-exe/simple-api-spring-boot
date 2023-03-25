@@ -9,41 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service
-public class StudentService {
-    @Autowired
-    private StudentRepository studentRepository;
 
-    public Student findById(Long id){
-        Optional<Student> ninja = this.studentRepository.findById(id);
-        return  ninja.orElseThrow(() -> new RuntimeException(
-                "Ninja não encontrado. id -> "+id+" Tipo:"+ Student.class.getName()
-        ));
-    }
+public interface StudentService {
 
-    public ArrayList<Student> findAll(){
-        return (ArrayList<Student>) this.studentRepository.findAll();
-    }
+    Student findById(Long id);
 
-    @Transactional
-    public Student update(Student student){
-        Student newStudent = findById(student.getId());
-        newStudent.setCourse(student.getCourse());
-        return this.studentRepository.save(newStudent);
-    }
+    ArrayList<Student> findAll();
 
-    @Transactional
-    public Student create(Student student){
-        student.setId(null);
-        return this.studentRepository.save(student);
-    }
+    Student update(Student student);
 
-    public void delete(Long id){
-        try {
-            this.studentRepository.deleteById(id);
-        } catch(RuntimeException ex){
-            System.out.println("Estudante não existe!");
-        }
-    }
+    Student create(Student student);
+
+    void delete(Long id);
+
 
 }
