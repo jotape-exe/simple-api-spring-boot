@@ -2,6 +2,7 @@ package com.myapi.example.controller;
 
 import com.myapi.example.model.Student;
 import com.myapi.example.service.impl.StudentServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,7 @@ public class StudentController {
 
 
     @PostMapping("/")
-    public ResponseEntity<Void> create(@RequestBody Student student){
+    public ResponseEntity<Void> create(@Valid @RequestBody Student student){
         this.studentServiceImpl.create(student);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/id").buildAndExpand(student.getId()).toUri();
@@ -39,14 +40,14 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@RequestBody Student student, @PathVariable Long id){
+    public ResponseEntity<Void> update(@Valid @RequestBody Student student, @PathVariable Long id){
         student.setId(id);
         student = this.studentServiceImpl.update(student);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.accepted().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<String> delete(@PathVariable Long id){
         this.studentServiceImpl.delete(id);
         return ResponseEntity.noContent().build();
     }
