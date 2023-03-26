@@ -33,6 +33,8 @@ public class StudentServiceImpl implements StudentService {
     public Student update(Student student){
         Student newStudent = findById(student.getId());
         newStudent.setCourse(student.getCourse());
+        newStudent.setName(student.getName());
+        newStudent.setRegistration(student.getRegistration());
         return this.studentRepository.save(newStudent);
     }
 
