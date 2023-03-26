@@ -19,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
     public Student findById(Long id){
         Optional<Student> student = this.studentRepository.findById(id);
         return  student.orElseThrow(() -> new RuntimeException(
-                "Student not found. id -> "+id+" Typo:"+ Student.class.getName()
+                "Student not found. id -> "+id
         ));
     }
 
