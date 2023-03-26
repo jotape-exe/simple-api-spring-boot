@@ -1,6 +1,5 @@
 package com.myapi.example.service.impl;
 
-import com.myapi.example.exceptionsAdvice.GlobalExceptionHandler;
 import com.myapi.example.model.Student;
 import com.myapi.example.repository.StudentRepository;
 import com.myapi.example.service.StudentService;
