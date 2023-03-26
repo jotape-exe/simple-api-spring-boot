@@ -15,15 +15,15 @@ public class Student {
     private Long id;
     @Column(name = "name")
     @Size(min = 2, max = 180)
-    @NotBlank
+    @NotBlank(message = "Nome vazio!")
     private String name;
     @Column(name = "registration")
     @Size(max = 10)
-    @NotBlank
+    @NotBlank(message = "Matricula vazia!")
     private String registration;
     @Column(name = "course")
     @Size(min = 3, max = 255)
-    @NotBlank
+    @NotBlank(message = "Curso vazio!")
     private String course;
 
     public Student(Long id, String name, String registration, String course) {
