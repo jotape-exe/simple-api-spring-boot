@@ -1,5 +1,6 @@
 package com.myapi.example.service.impl;
 
+import com.myapi.example.exceptionsAdvice.GlobalExceptionHandler;
 import com.myapi.example.model.Student;
 import com.myapi.example.repository.StudentRepository;
 import com.myapi.example.service.StudentService;
@@ -44,11 +45,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void delete(Long id){
-        try {
+    public void delete(Long id) throws RuntimeException{
+        try{
             this.studentRepository.deleteById(id);
-        } catch(RuntimeException ex){
-            System.out.println("Student does not exist!");
+        }catch (Exception ex){
+            throw new RuntimeException("Student not found. id -> "+id);
         }
+
     }
 }

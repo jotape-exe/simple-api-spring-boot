@@ -47,7 +47,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id){
+    public ResponseEntity<String> delete(@PathVariable Long id) throws RuntimeException{
         this.studentServiceImpl.delete(id);
         return ResponseEntity.noContent().build();
     }
