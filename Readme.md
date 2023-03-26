@@ -2,6 +2,12 @@
 
 This API allows the management of students, where each student has an ID, name, enrollment and course.
 
+### Important:
+
+
+*The database used is MySQL. It is not necessary to create a database and its tables, you just need to have MySQL active on your machine. (Configure the port in src/main/resources/application.properties)*
+
+
 <br>
 
 ### To use the API, follow the steps below:
