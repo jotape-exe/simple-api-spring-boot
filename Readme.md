@@ -31,8 +31,6 @@ git clone https://github.com/seu-usuario api-estudantes.git
 
 ## Examples
 
-<hr>
-
 ### Create a student
 
 <br>
