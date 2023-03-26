@@ -17,9 +17,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findById(Long id){
-        Optional<Student> ninja = this.studentRepository.findById(id);
-        return  ninja.orElseThrow(() -> new RuntimeException(
-                "Estudante não encontrado. id -> "+id+" Tipo:"+ Student.class.getName()
+        Optional<Student> student = this.studentRepository.findById(id);
+        return  student.orElseThrow(() -> new RuntimeException(
+                "Student not found. id -> "+id+" Typo:"+ Student.class.getName()
         ));
     }
 
@@ -48,7 +48,7 @@ public class StudentServiceImpl implements StudentService {
         try {
             this.studentRepository.deleteById(id);
         } catch(RuntimeException ex){
-            System.out.println("Estudante não existe!");
+            System.out.println("Student does not exist!");
         }
     }
 }

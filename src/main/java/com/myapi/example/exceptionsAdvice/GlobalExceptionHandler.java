@@ -1,4 +1,4 @@
-package com.myapi.example.exceptions;
+package com.myapi.example.exceptionsAdvice;
 
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
