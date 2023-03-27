@@ -30,7 +30,6 @@ public class StudentController {
         return ResponseEntity.ok().body(students);
     }
 
-
     @PostMapping("/create/")
     public ResponseEntity<Void> create(@Valid @RequestBody Student student){
         this.studentServiceImpl.create(student);
