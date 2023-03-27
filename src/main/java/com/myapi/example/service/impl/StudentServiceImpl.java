@@ -18,7 +18,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student findById(Long id){
         Optional<Student> student = this.studentRepository.findById(id);
-        return  student.orElseThrow(() -> new RuntimeException(
+        return student.orElseThrow(() -> new RuntimeException(
                 "Student not found. id -> "+id
         ));
     }
@@ -53,6 +53,4 @@ public class StudentServiceImpl implements StudentService {
         }
 
     }
-
-
 }
