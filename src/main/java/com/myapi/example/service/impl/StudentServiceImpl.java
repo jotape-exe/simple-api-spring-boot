@@ -32,9 +32,8 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public Student update(Student student){
         Student newStudent = findById(student.getId());
-        newStudent.setCourse(student.getCourse());
         newStudent.setName(student.getName());
-        newStudent.setRegistration(student.getRegistration());
+        newStudent.setPhone(student.getPhone());
         return this.studentRepository.save(newStudent);
     }
 
@@ -54,4 +53,6 @@ public class StudentServiceImpl implements StudentService {
         }
 
     }
+
+
 }

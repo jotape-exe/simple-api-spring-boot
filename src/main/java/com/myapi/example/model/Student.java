@@ -1,14 +1,16 @@
 package com.myapi.example.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
-@Table(name = "student")
+@Table(name = Student.TABLE_NAME)
 @Data
 public class Student {
+    public static final String  TABLE_NAME = "student";
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,21 +19,14 @@ public class Student {
     @Size(min = 2, max = 180)
     @NotBlank(message = "Blank Name!")
     private String name;
-    @Column(name = "registration")
-    @Size(max = 10)
-    @NotBlank(message = "Blank Registration!")
-    private String registration;
-    @Column(name = "course")
-    @Size(min = 3, max = 255)
-    @NotBlank(message = "Blank Course!")
-    private String course;
 
-    public Student(Long id, String name, String registration, String course) {
+    @Column(name = "phone")
+    @Max(value = 20)
+    private String phone;
+
+    public Student(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.registration = registration;
-        this.course = course;
-
     }
     public Student(){
 
