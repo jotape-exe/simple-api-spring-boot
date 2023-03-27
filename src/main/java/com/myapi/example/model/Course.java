@@ -1,8 +1,7 @@
 package com.myapi.example.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Entity
@@ -22,6 +21,8 @@ public class Course {
     private String name;
 
     @Column(name = "workload")
-    @NotBlank
+    @NotNull
+    @Min(1)
+    @Max(40)
     private int workload;
 }
