@@ -31,7 +31,7 @@ public class StudentController {
     }
 
 
-    @PostMapping("/")
+    @PostMapping("/create/")
     public ResponseEntity<Void> create(@Valid @RequestBody Student student){
         this.studentServiceImpl.create(student);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -39,14 +39,14 @@ public class StudentController {
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Void> update(@Valid @RequestBody Student student, @PathVariable Long id){
         student.setId(id);
         student = this.studentServiceImpl.update(student);
         return ResponseEntity.accepted().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) throws RuntimeException{
         this.studentServiceImpl.delete(id);
         return ResponseEntity.noContent().build();

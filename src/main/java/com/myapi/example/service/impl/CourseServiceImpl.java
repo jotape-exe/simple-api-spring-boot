@@ -4,12 +4,14 @@ import com.myapi.example.model.Course;
 import com.myapi.example.repository.CourseRepository;
 import com.myapi.example.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class CourserServiceImpl implements CourseService {
+@Service
+public class CourseServiceImpl implements CourseService {
     @Autowired
     private CourseRepository courseRepository;
 

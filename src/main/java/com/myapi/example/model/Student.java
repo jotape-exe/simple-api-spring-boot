@@ -21,7 +21,7 @@ public class Student {
     private String name;
 
     @Column(name = "phone")
-    @Max(value = 20)
+    @Size(max = 25)
     private String phone;
 
     public Student(Long id, String name) {
