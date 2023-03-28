@@ -2,7 +2,7 @@ package com.myapi.example.service.impl;
 
 import com.myapi.example.model.Discipline;
 import com.myapi.example.repository.DisciplineRepository;
-import com.myapi.example.service.DisciplineService;
+import com.myapi.example.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class DisciplineServiceImpl implements DisciplineService {
+public class DisciplineServiceImpl implements GenericService<Discipline> {
 
     @Autowired
     private DisciplineRepository disciplineRepository;
