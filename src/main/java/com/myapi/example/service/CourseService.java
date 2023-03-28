@@ -1,7 +1,6 @@
 package com.myapi.example.service;
 
 import com.myapi.example.model.Course;
-import com.myapi.example.model.Discipline;
 
 import java.util.ArrayList;
 
