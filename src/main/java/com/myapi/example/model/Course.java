@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = Course.TABLE_NAME)
 @Data
@@ -25,4 +28,8 @@ public class Course {
     @Min(1)
     @Max(40)
     private int workload;
+
+    @OneToMany(mappedBy = "course")
+    private List<Enrollment> enrollments = new ArrayList<>();
+
 }

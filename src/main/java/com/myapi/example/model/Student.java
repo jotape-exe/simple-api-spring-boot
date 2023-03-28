@@ -1,10 +1,12 @@
 package com.myapi.example.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = Student.TABLE_NAME)
@@ -24,11 +26,7 @@ public class Student {
     @Size(max = 25)
     private String phone;
 
-    public Student(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    public Student(){
+    @OneToMany(mappedBy = "student")
+    private List<Enrollment> enrollments = new ArrayList<>();
 
-    }
-}
+ }
