@@ -6,10 +6,13 @@ import com.myapi.example.model.Student;
 import com.myapi.example.repository.EnrollmentRepository;
 import com.myapi.example.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
+@Service
 public class EnrollmentServiceImpl implements EnrollmentService {
     @Autowired
     EnrollmentRepository enrollmentRepository;
@@ -19,7 +22,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
     @Autowired
     CourseServiceImpl courseService;
-    
+
     @Override
     public Enrollment findById(Long id) {
         Optional<Enrollment> enrollment = this.enrollmentRepository.findById(id);
@@ -49,7 +52,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
         try {
             this.enrollmentRepository.deleteById(id);
         } catch (Exception ex){
-            throw new RuntimeException("Enrollment not found! ID -> "+id);
+            throw new DataIntegrityViolationException("Unable to delete as there are related entities!");
         }
     }
 

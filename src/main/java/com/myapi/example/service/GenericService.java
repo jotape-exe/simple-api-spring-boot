@@ -1,5 +1,7 @@
 package com.myapi.example.service;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
 public interface GenericService<T> {

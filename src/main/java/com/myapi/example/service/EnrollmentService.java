@@ -1,6 +1,7 @@
 package com.myapi.example.service;
 
 import com.myapi.example.model.Enrollment;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
