@@ -1,5 +1,6 @@
 package com.myapi.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,17 +20,17 @@ public class Enrollment {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false, updatable = false)
+    @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false, updatable = false)
     @NotNull
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "course_id", nullable = false, updatable = false)
+    @JoinColumn(name = "course_id" , referencedColumnName = "id", nullable = false, updatable = false)
     @NotNull
     private Course course;
 
     @Column(name = "date_creation")
     @NotNull
-    private Date date_creation;
+    private Date dateCreation;
 
 }

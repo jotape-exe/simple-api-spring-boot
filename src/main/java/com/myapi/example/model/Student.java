@@ -1,5 +1,6 @@
 package com.myapi.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -27,6 +28,11 @@ public class Student {
     private String phone;
 
     @OneToMany(mappedBy = "student")
+    @JsonIgnore
     private List<Enrollment> enrollments = new ArrayList<>();
+
+    public List<Enrollment> getEnrollments(){
+        return enrollments;
+    }
 
  }

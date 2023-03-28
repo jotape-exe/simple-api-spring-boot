@@ -1,5 +1,6 @@
 package com.myapi.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class Course {
     private int workload;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<Enrollment> enrollments = new ArrayList<>();
 
 }
