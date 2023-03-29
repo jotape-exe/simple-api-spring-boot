@@ -31,8 +31,4 @@ public class Student {
     @JsonIgnore
     private List<Enrollment> enrollments = new ArrayList<>();
 
-    public List<Enrollment> getEnrollments(){
-        return enrollments;
-    }
-
  }

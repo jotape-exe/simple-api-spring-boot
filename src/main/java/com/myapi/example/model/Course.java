@@ -27,7 +27,7 @@ public class Course {
     @Column(name = "workload")
     @NotNull
     @Min(1)
-    @Max(40)
+    @Max(1000)
     private int workload;
 
     @OneToMany(mappedBy = "course")
